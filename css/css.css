@@ -20,7 +20,7 @@ body{margin:0;min-height:100vh;font-family:Arial,Helvetica,sans-serif;background
 .tv-hamburger span{display:block;width:18px;height:2px;background:#333;margin:2px 0;border-radius:2px;transition:background .2s ease}
 .tv-hamburger:hover{transform:translateY(-2px);box-shadow:0 6px 12px rgba(0,0,0,.16)}
 .tv-hamburger:hover span{background:#2b7cff}
-.tv-title-button{font-size:1.5rem;font-weight:700;border:1px solid #3d4488;background:#000000;color:#0b1f70;cursor:pointer;padding:10px 20px;border-radius:999px;transition:transform .15s ease,box-shadow .15s ease,background .2s ease;white-space:nowrap}
+.tv-title-button{font-size:1.5rem;font-weight:700;border:1px solid #3d4488;background:#baddbab7;color:#0b1f70;cursor:pointer;padding:10px 20px;border-radius:999px;transition:transform .15s ease,box-shadow .15s ease,background .2s ease;white-space:nowrap}
 .tv-title-button:hover{transform:translateY(-2px);box-shadow:0 6px 12px rgba(0,0,0,.12);background:#dbe6ff}
 .tv-header-right{display:flex;align-items:center;gap:8px;margin-left:auto}
 .tv-search-container{position:relative;min-width:260px;max-width:320px}
