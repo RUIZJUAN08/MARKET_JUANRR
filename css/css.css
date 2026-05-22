@@ -1,0 +1,81 @@
+/* Tienda Virtual: estilos globales y de componentes.
+   - .tv-container: contenedor principal de la app.
+   - .tv-products: rejilla de productos.
+   - .tv-card: tarjetas de producto y paneles.
+   - .tv-header: barra superior de navegación. */
+*,*::before,*::after{box-sizing:border-box;}
+body{margin:0;min-height:100vh;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#dbe7ff 0%,#f5f8ff 100%);color:#1a1a1a;}
+.tv-container{max-width:1200px;margin:20px auto;padding:16px;}
+.tv-products{display:grid;grid-template-columns:repeat(3,minmax(240px,1fr));gap:16px;margin-top:16px;}
+.tv-card{width:100%;border:1px solid #5431d3;padding:18px;border-radius:16px;background:#f5f5ff;box-shadow:0 10px 24px rgba(0,0,0,.08);transition:transform .3s ease,box-shadow .3s ease;cursor:pointer;}
+.tv-card:hover{transform:translateY(-6px);box-shadow:0 18px 32px rgba(0,0,0,.14);}
+.tv-card h4{margin:0 0 8px}
+.product-detail{padding:16px;max-width:720px;width:auto;margin:24px auto 0;}
+.product-detail .product-image{width:80%;max-width:280px;display:block;margin:0 auto 16px;height:auto}
+.product-image{width:100%;height:auto;border-radius:4px;margin-bottom:12px;object-fit:cover}
+.cart-image{width:50px;height:50px;border-radius:4px;object-fit:cover}
+/* Encabezado de la tienda: título, menú, sesión y resumen del carrito. */
+.tv-header{display:flex;justify-content:space-between;align-items:center;gap:15px}
+/* Botón del menú: muestra el panel lateral cuando está activo. */
+.tv-hamburger{width:40px;height:40px;border:none;background:#eef2ff;border-radius:12px;box-shadow:0 3px 10px rgba(0,0,0,.12);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease;flex-direction:column;justify-content:center}
+.tv-hamburger span{display:block;width:18px;height:2px;background:#333;margin:2px 0;border-radius:2px;transition:background .2s ease}
+.tv-hamburger:hover{transform:translateY(-2px);box-shadow:0 6px 12px rgba(0,0,0,.16)}
+.tv-hamburger:hover span{background:#2b7cff}
+.tv-title-button{font-size:1.5rem;font-weight:700;border:1px solid #3d4488;background:#eef2ff;color:#0b1f70;cursor:pointer;padding:10px 20px;border-radius:999px;transition:transform .15s ease,box-shadow .15s ease,background .2s ease;white-space:nowrap}
+.tv-title-button:hover{transform:translateY(-2px);box-shadow:0 6px 12px rgba(0,0,0,.12);background:#dbe6ff}
+.tv-header-right{display:flex;align-items:center;gap:8px;margin-left:auto}
+.tv-search-container{position:relative;min-width:260px;max-width:320px}
+.tv-search-input{width:100%;padding:8px 12px;border:1px solid #ccc;border-radius:999px;background:#fff;color:#111;transition:box-shadow .15s ease,border-color .15s ease;}
+.tv-search-input:focus{outline:none;border-color:#2b7cff;box-shadow:0 0 0 4px rgba(43, 113, 255, .15);}
+.tv-search-results{position:absolute;top:calc(100% + 8px);left:0;right:0;max-height:260px;overflow:auto;background:#fff;border:1px solid #ccc;border-radius:12px;box-shadow:0 16px 32px rgba(0,0,0,.12);display:none;z-index:60}
+.tv-search-results.open{display:block}
+.tv-search-item{padding:10px 12px;cursor:pointer;border-bottom:1px solid #f0f0f0;transition:background .15s ease;}
+.tv-search-item:last-child{border-bottom:none}
+.tv-search-item strong{display:block;font-size:.95rem;margin-bottom:4px}
+.tv-search-item div{font-size:.85rem;color:#555}
+.tv-search-no-results{padding:10px 12px;color:#555}
+.tv-header-actions{display:flex;align-items:center;gap:8px}
+.tv-header-greeting{font-weight:600;color:#0b1f70}
+.tv-auth-button{padding:8px 14px;border:1px solid #3d4488;border-radius:999px;background:#eef2ff;color:#0b1f70;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease,background .2s ease;font-weight:600}
+.tv-auth-button:hover{transform:translateY(-2px);box-shadow:0 5px 12px rgba(0,0,0,.12);background:#dbe6ff}
+.tv-actions{display:flex;gap:8px;margin-top:8px}
+/* Panel lateral que contiene las opciones del menú. */
+.tv-menu-panel{position:fixed;top:0;left:0;bottom:0;width:260px;background:#fff;border-right:1px solid #ddd;box-shadow:4px 0 16px rgba(0,0,0,.18);padding:20px;transform:translateX(-110%);transition:transform .3s ease;z-index:1000}
+.tv-menu-panel.open{transform:translateX(0)}
+.tv-menu-close{background:none;border:none;font-size:1.5rem;cursor:pointer;color:#333;position:absolute;top:14px;right:14px}
+.tv-menu-item{display:block;width:100%;padding:12px 14px;margin:10px 0;border:1px solid #3d4488;border-radius:999px;background:#eef2ff;color:#0b1f70;cursor:pointer;text-align:center;transition:transform .15s ease,box-shadow .15s ease,background .2s ease;font-weight:600}
+.tv-menu-item:hover{transform:translateY(-2px);box-shadow:0 5px 12px rgba(0,0,0,.12);background:#dbe6ff}
+.tv-menu-title{font-size:50px;font-weight:700;color:#16225e}
+.tv-menu-description{color:#555;font-size:.95rem;line-height:1.4}
+.tv-form-group{margin-bottom:14px}
+.tv-form-group label{display:block;margin-bottom:6px;font-weight:600}
+.tv-form-group input,.tv-form-group textarea{width:100%;padding:10px;border:1px solid #ccc;border-radius:8px;font-size:1rem}
+.tv-form-group textarea{resize:none}
+.tv-support-box{background:#eef2ff;padding:16px;border-radius:10px;border:1px solid #d7e0ff}
+.tv-btn{padding:8px 10px;border:none;border-radius:4px;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease}
+.tv-btn:hover{transform:translateY(-2px);box-shadow:0 5px 12px rgba(0,0,0,.12)}
+.tv-icon-btn{min-width:36px;display:inline-flex;align-items:center;justify-content:center;font-weight:700}
+.tv-btn.primary{background:#2b7cff;color:#fff}
+.tv-btn.secondary{background:#04c273;color:#fff; display: flex; justify-content: flex-start;}
+.tv-btn.ghost{background:#f4f4f4}
+/* Contenedor del resumen del carrito y los botones de pago. */
+.tv-cart{border:1px solid #3d4488;padding:12px;border-radius:6px;background:#dddddde5;width:320px; box-shadow: 4px 4px 4px #000000;}
+.tv-grid{display:flex;gap:16px}
+.tv-empty{color:#777}
+
+/* Responsive */
+@media (max-width:1100px){
+  .tv-products{grid-template-columns:repeat(2,minmax(220px,1fr));}
+}
+
+@media (max-width:760px){
+  .tv-header{flex-wrap:wrap;align-items:flex-start;}
+  .tv-header-right{width:100%;justify-content:space-between;flex-wrap:wrap;}
+  .tv-search-container{width:100%;max-width:none;}
+  .tv-products{grid-template-columns:1fr;}
+  .tv-cart{width:100%;}
+}
+
+@media (max-width:520px){
+  .tv-actions{flex-direction:column;}
+}
